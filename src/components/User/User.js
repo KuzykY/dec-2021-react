@@ -1,10 +1,14 @@
 import React from 'react';
 
-const User = ({user,setUser}) => {
+const User = ({user,setUser,setUserIdPost}) => {
+    const click = () => {
+        setUserIdPost(false);
+        setUser(user)
+    }
     return (
         <div>
             {user.name}
-            < input type='button' value='Show Info' onClick={()=>setUser(user)}/>
+            < input type='button' value='Show Info' onClick={click}/>
         </div>
     );
 };

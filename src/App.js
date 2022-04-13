@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import {Posts, Users,UserInfo} from "./components";
+import css from './App.module.css'
 
 
 const App = () => {
@@ -8,8 +9,8 @@ const App = () => {
     const [userIdPost,setUserIdPost]=useState(null);
     return (
         <div>
-            <div>
-                <Users setUser={setUser}/>
+            <div className={css.wrap}>
+                <Users setUser={setUser} setUserIdPost={setUserIdPost}/>
                 {user && <UserInfo user={user} setUserIdPost={setUserIdPost}/>}
             </div>
             {userIdPost && <Posts userId={userIdPost}/>}
