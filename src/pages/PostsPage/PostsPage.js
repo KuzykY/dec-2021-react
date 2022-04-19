@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {Outlet, useParams} from "react-router-dom";
 
 import {postsService} from "../../services";
 import {Post} from "../../components";
 import css from './PostPage.module.css'
+
 
 const PostsPage = () => {
     const [posts,setPosts]=useState([])
