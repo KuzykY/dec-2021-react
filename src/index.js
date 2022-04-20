@@ -1,4 +1,3 @@
-
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
@@ -12,6 +11,5 @@ root.render(
             <App/>
         </BrowserRouter>
     </AuthProvider>
-
 )
 
