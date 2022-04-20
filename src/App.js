@@ -41,13 +41,13 @@ const App = () => {
                 <div>{state.counter2}
                     <button onClick={() => dispatch({type: 'inc2'})}>INC</button>
                     <button onClick={() => dispatch({type: 'dec2'})}>DEC</button>
-                    <button onClick={()=>dispatch({type:'reset1'})}>RESET</button>
+                    <button onClick={()=>dispatch({type:'reset2'})}>RESET</button>
                 </div>
                 <hr/>
                 <div>{state.counter3}
                     <button onClick={() => dispatch({type: 'inc3'})}>INC</button>
                     <button onClick={() => dispatch({type: 'dec3'})}>DEC</button>
-                    <button>RESET</button>
+                    <button onClick={()=>dispatch({type:'reset3'})}>RESET</button>
                 </div>
             </div>
         </div>
