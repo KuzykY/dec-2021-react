@@ -24,7 +24,9 @@ const reducer = (state, action) => {
             return {...state,counter2:0}
         case 'reset3':
             return {...state,counter3:0}
-
+        default :
+            console.error('Невідомий Тип!');
+            return state;
     }
 }
 const App = () => {
