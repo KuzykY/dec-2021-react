@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 
 const App = () => {
+    const [state,dispatch] = useReducer(reducer,{cats:[],dogs:[]});
     return (
         <div>
           App
