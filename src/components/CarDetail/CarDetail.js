@@ -6,21 +6,23 @@ import {carActions} from "../../redux";
 const CarDetail = ({car, car: {id, model, price, year}}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     const deleteById = async () => {
         await dispatch(carActions.deleteById({id}));
         navigate('/cars');
     };
     const updateById = async () => {
-        await dispatch(carActions.setCarForUpdate({car}))
-    }
+      await dispatch(carActions.setCarForUpdate({car}))
+    };
+
     return (
         <div>
-            <p>ID:{id}</p>
-            <p>Model:{model}</p>
-            <p>Price:{price}</p>
-            <p>Year:{year}</p>
-            <button onClick={() => { deleteById()}}>Delete</button>
-            <button onClick={()=>{updateById()}}>Update</button>
+            <p><b>id:</b>{id}</p>
+            <p><b>model:</b>{model}</p>
+            <p><b>price:</b>{price}</p>
+            <p><b>year:</b>{year}</p>
+            <button onClick={deleteById}>delete</button>
+            <button onClick={updateById}>update</button>
         </div>
     );
 };

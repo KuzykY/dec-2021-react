@@ -2,7 +2,7 @@ import React from 'react';
 
 import Cars from "../../components/Cars/Cars";
 
-const CarPage = () => {
+const CarsPage = () => {
     return (
         <div>
             <Cars/>
@@ -10,4 +10,4 @@ const CarPage = () => {
     );
 };
 
-export {CarPage};
+export {CarsPage};

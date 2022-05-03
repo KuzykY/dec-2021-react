@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 import {carActions} from "../../redux";
-
 const CarForm = () => {
     const {formErrors, carForUpdate} = useSelector(state => state.cars);
     const {reset, register, handleSubmit, setValue} = useForm();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     useEffect(() => {
             if (carForUpdate) {
                 const {model, price, year} = carForUpdate;
@@ -23,8 +24,9 @@ const CarForm = () => {
         } else {
             await dispatch(carActions.create({car: newCar}))
         }
+        navigate('/cars');
+        reset();
 
-        reset()
     }
     return (
         <form onSubmit={handleSubmit(submit)}>
