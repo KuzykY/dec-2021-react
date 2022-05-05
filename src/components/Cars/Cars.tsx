@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 
-const Cars = () => {
+import {useAppSelector} from "../../hook";
+
+
+const Cars:FC = () => {
+    const {cars}=useAppSelector(state =>state.carReducer)
     return (
         <div>
             Cars

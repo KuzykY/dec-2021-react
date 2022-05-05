@@ -1,26 +1,41 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {ICar} from "../../interfaces";
+import {carService} from "../../services";
 
 
-
-interface IState{
-    cars:ICar[]
+interface IState {
+    cars: ICar[]
 }
-const initialState:IState = {
-    cars:[]
+
+const initialState: IState = {
+    cars: []
 };
 
+const getAll = createAsyncThunk<ICar[], void>(
+    'carSlice/getAll',
+    async () => {
+        const {data} = await carService.getAll();
+        return data
+    }
+);
 
-const carSlice=createSlice({
-    name:'carSlice',
+const carSlice = createSlice({
+    name: 'carSlice',
     initialState,
-    reducers:{}
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAll.fulfilled, (state, action) => {
+                state.cars = action.payload
+            })
+    }
+
 })
 
-const {reducer:carReducer}=carSlice;
+const {reducer: carReducer} = carSlice;
 
-const carActions={
-
+const carActions = {
+    getAll
 }
 
 export {
