@@ -1,12 +1,18 @@
 import React, {FC} from 'react';
-import {CarForm, Cars} from "../../components";
+import {Outlet} from "react-router-dom";
 
+import './CarPage.module.css';
+import {CarForm, Cars} from "../../components";
 const CarPage: FC = () => {
     return (
-        <div>
+        <div className={'wrap'}>
             <CarForm/>
             <hr/>
-            <Cars/>
+            <div>
+                <Cars/>
+                <Outlet/>
+            </div>
+
         </div>
     );
 };

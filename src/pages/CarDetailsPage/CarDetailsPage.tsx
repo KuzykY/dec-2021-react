@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {ICar} from "../../interfaces";
 import {carService} from "../../services";
+import {CarDetails} from "../../components/CarDetails/CarDetails";
 
 const CarDetailsPage: FC = () => {
     const {id} = useParams<{ id: string }>();
@@ -11,7 +12,7 @@ const CarDetailsPage: FC = () => {
     },[id])
     return (
         <div>
-            {car&&}
+            {car&& <CarDetails car={car}/>}
         </div>
     );
 };
